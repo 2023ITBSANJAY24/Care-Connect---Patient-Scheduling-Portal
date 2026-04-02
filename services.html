@@ -1,0 +1,560 @@
+{% extends "base.html" %}
+
+{% block title %}MedNova - Our Services{% endblock %}
+
+{% block content %}
+<!-- Services Page Hero Slider -->
+<section class="services-hero-slider">
+    <div class="slider-container">
+        <!-- Slide 1 - Service1.jpg -->
+        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=1920&q=85');">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <h1 class="hero-title">Our Medical Services</h1>
+                <p class="hero-subtitle">Comprehensive healthcare solutions at MedNova Multispeciality Hospital</p>
+            </div>
+        </div>
+        
+        <!-- Slide 2 - Service2.jpg -->
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1920&q=85');">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <h1 class="hero-title">Our Medical Services</h1>
+                <p class="hero-subtitle">Comprehensive healthcare solutions at MedNova Multispeciality Hospital</p>
+            </div>
+        </div>
+        
+        <!-- Slide 3 - Service3.jpg -->
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1920&q=85');">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <h1 class="hero-title">Our Medical Services</h1>
+                <p class="hero-subtitle">Comprehensive healthcare solutions at MedNova Multispeciality Hospital</p>
+            </div>
+        </div>
+        
+        <!-- Slider Navigation Dots -->
+        <div class="slider-nav">
+            <button class="nav-dot active" data-slide="0"></button>
+            <button class="nav-dot" data-slide="1"></button>
+            <button class="nav-dot" data-slide="2"></button>
+        </div>
+        
+        <!-- Arrow Navigation -->
+        <button class="slider-arrow prev" onclick="servicesChangeSlide(-1)">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="slider-arrow next" onclick="servicesChangeSlide(1)">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+</section>
+
+<!-- Services Hero Slider CSS -->
+<style>
+/* Services Hero Slider Section */
+.services-hero-slider {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    min-height: 400px;
+    max-height: 500px;
+    overflow: hidden;
+    background: #0B3C5D;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Slide Styles */
+.services-hero-slider .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.services-hero-slider .slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Zoom-in animation on active slide */
+.services-hero-slider .slide.active {
+    animation: servicesZoomIn 6s ease forwards;
+}
+
+@keyframes servicesZoomIn {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+/* Dark Blue Overlay - rgba(11, 60, 93, 0.7) */
+.slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(11, 60, 93, 0.7);
+    z-index: 1;
+}
+
+/* Slide Content */
+.slide-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+    padding: 0 20px;
+    max-width: 900px;
+    width: 100%;
+}
+
+.services-hero-slider .hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.services-hero-slider .hero-subtitle {
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
+/* Slider Navigation Dots */
+.services-hero-slider .slider-nav {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    gap: 12px;
+}
+
+.services-hero-slider .nav-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.services-hero-slider .nav-dot:hover {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.services-hero-slider .nav-dot.active {
+    background: #ffffff;
+    transform: scale(1.2);
+}
+
+/* Slider Arrows */
+.services-hero-slider .slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+}
+
+.services-hero-slider .slider-arrow:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.services-hero-slider .slider-arrow.prev {
+    left: 30px;
+}
+
+.services-hero-slider .slider-arrow.next {
+    right: 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+    .services-hero-slider {
+        height: 50vh;
+        min-height: 350px;
+    }
+    
+    .services-hero-slider .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .services-hero-slider .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .services-hero-slider .slider-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .services-hero-slider .slider-arrow.prev {
+        left: 15px;
+    }
+    
+    .services-hero-slider .slider-arrow.next {
+        right: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .services-hero-slider {
+        height: 45vh;
+        min-height: 300px;
+    }
+    
+    .services-hero-slider .hero-title {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+    
+    .services-hero-slider .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .services-hero-slider .slider-arrow {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+    
+    .services-hero-slider .slider-nav {
+        bottom: 20px;
+    }
+    
+    .services-hero-slider .nav-dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+</style>
+
+<!-- Services Hero Slider JavaScript -->
+<script>
+(function() {
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.services-hero-slider .slide');
+    const dots = document.querySelectorAll('.services-hero-slider .nav-dot');
+    const totalSlides = slides.length;
+    let slideInterval;
+
+    // Auto slide function - 5 seconds
+    function autoSlide() {
+        slideInterval = setInterval(function() {
+            servicesChangeSlide(1);
+        }, 5000);
+    }
+
+    // Change slide function
+    window.servicesChangeSlide = function(direction) {
+        slides[currentSlide].classList.remove('active');
+        dots[currentSlide].classList.remove('active');
+        
+        currentSlide += direction;
+        
+        if (currentSlide >= totalSlides) {
+            currentSlide = 0;
+        } else if (currentSlide < 0) {
+            currentSlide = totalSlides - 1;
+        }
+        
+        slides[currentSlide].classList.add('active');
+        dots[currentSlide].classList.add('active');
+    };
+
+    // Go to specific slide
+    function goToSlide(slideIndex) {
+        slides[currentSlide].classList.remove('active');
+        dots[currentSlide].classList.remove('active');
+        
+        currentSlide = slideIndex;
+        
+        slides[currentSlide].classList.add('active');
+        dots[currentSlide].classList.add('active');
+        
+        resetInterval();
+    }
+
+    // Add click events to dots
+    dots.forEach(function(dot, index) {
+        dot.addEventListener('click', function() {
+            goToSlide(index);
+        });
+    });
+
+    // Reset interval when manually changing slides
+    function resetInterval() {
+        clearInterval(slideInterval);
+        autoSlide();
+    }
+
+    // Pause on hover
+    const sliderSection = document.querySelector('.services-hero-slider');
+    if (sliderSection) {
+        sliderSection.addEventListener('mouseenter', function() {
+            clearInterval(slideInterval);
+        });
+
+        sliderSection.addEventListener('mouseleave', function() {
+            autoSlide();
+        });
+    }
+
+    // Initialize
+    autoSlide();
+})();
+</script>
+
+<!-- Services Section -->
+<section class="py-5" style="background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Cardiology Care - Doctor checking ECG monitor -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card-3d h-100">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&q=85" alt="Cardiology - Doctor checking ECG monitor">
+                        <div class="service-overlay"></div>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon"><i class="fas fa-heartbeat"></i></div>
+                        <h4 class="fw-bold">Cardiology Care</h4>
+                        <p class="text-muted mb-0">Expert cardiac care with advanced ECG diagnostics and heart surgery procedures.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Neurology Treatment - MRI brain scan analysis -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card-3d h-100">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1200&q=85" alt="Neurology - MRI brain scan analysis">
+                        <div class="service-overlay"></div>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon"><i class="fas fa-brain"></i></div>
+                        <h4 class="fw-bold">Neurology Treatment</h4>
+                        <p class="text-muted mb-0">Advanced MRI brain scan analysis and neurological care for all brain disorders.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Orthopaedic Surgery - X-ray bone treatment -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card-3d h-100">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=1200&q=85" alt="Orthopaedic - X-ray bone treatment">
+                        <div class="service-overlay"></div>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon"><i class="fas fa-bone"></i></div>
+                        <h4 class="fw-bold">Orthopaedic Surgery</h4>
+                        <p class="text-muted mb-0">Expert X-ray analysis and treatment for bone and joint conditions.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pediatric Care - Pediatrician with child -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card-3d h-100">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?w=1200&q=85" alt="Pediatric - Pediatrician consulting child">
+                        <div class="service-overlay"></div>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon"><i class="fas fa-baby"></i></div>
+                        <h4 class="fw-bold">Pediatric Care</h4>
+                        <p class="text-muted mb-0">Compassionate pediatrician consulting child patient in hospital environment.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Dermatology - Skin specialist examination -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card-3d h-100">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=1200&q=85" alt="Dermatology - Skin examination">
+                        <div class="service-overlay"></div>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon"><i class="fas fa-user-md"></i></div>
+                        <h4 class="fw-bold">Dermatology</h4>
+                        <p class="text-muted mb-0">Professional skin specialist examining patient for all skin conditions.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- General Consultation - Doctor talking with patient -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card-3d h-100">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&q=85" alt="General - Doctor talking with patient">
+                        <div class="service-overlay"></div>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon"><i class="fas fa-stethoscope"></i></div>
+                        <h4 class="fw-bold">General Consultation</h4>
+                        <p class="text-muted mb-0">General physician talking with patient at desk for routine check-ups.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Emergency Care - ER room -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card-3d h-100">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&q=85" alt="Emergency - Modern ER room">
+                        <div class="service-overlay"></div>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon"><i class="fas fa-ambulance"></i></div>
+                        <h4 class="fw-bold">Emergency Care</h4>
+                        <p class="text-muted mb-0">Modern emergency room with 24/7 ambulance team in action.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CTA Section -->
+        <div class="text-center mt-5">
+            <h3 class="fw-bold mb-3">Need to Book an Appointment?</h3>
+            <p class="text-muted mb-4">Our expert doctors at MedNova are ready to help you.</p>
+            <a href="/register-page" class="btn btn-primary btn-lg px-5">
+                <i class="fas fa-calendar-check me-2"></i>Book Appointment
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Service Card 3D Effect */
+.service-card-3d {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    cursor: pointer;
+    border: 1px solid #e2e8f0;
+}
+
+.service-card-3d:hover {
+    transform: perspective(1000px) rotateY(5deg) scale(1.05);
+    box-shadow: 0 20px 40px rgba(30, 58, 138, 0.25);
+}
+
+/* Service Image - Consistent size */
+.service-image {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.service-image img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s ease;
+}
+
+/* Zoom hover effect */
+.service-card-3d:hover .service-image img {
+    transform: scale(1.1);
+}
+
+/* Gradient overlay for professional look */
+.service-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 30%, rgba(30, 58, 138, 0.85) 100%);
+    opacity: 0.7;
+    transition: opacity 0.4s ease;
+}
+
+.service-card-3d:hover .service-overlay {
+    opacity: 0.85;
+}
+
+/* Service Content */
+.service-content {
+    padding: 20px;
+    text-align: center;
+    background: white;
+}
+
+/* Service Icon */
+.service-icon {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.25rem;
+    margin: -46px auto 15px;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .service-image { height: 200px; }
+    .service-image img { height: 200px; }
+}
+
+@media (max-width: 576px) {
+    .service-image { height: 180px; }
+    .service-image img { height: 180px; }
+    .service-content { padding: 15px; }
+    .service-icon { width: 48px; height: 48px; font-size: 1rem; margin: -40px auto 12px; }
+}
+</style>
+{% endblock %}

@@ -1,0 +1,1001 @@
+x{% extends "base.html" %}
+
+{% block title %}CareConnect - Home{% endblock %}
+
+{% block content %}
+
+<!-- Hospital Header Section -->
+<div class="hospital-header-section" style="background: #ffffff; padding: 25px 20px 20px; text-align: center;">
+    <!-- Project Title -->
+    <div class="project-title-section" style="margin-top: 8px;">
+        <span class="project-title" style="font-family: 'Montserrat', 'Poppins', sans-serif; font-size: 48px; font-weight: 700; color: #16A085; display: block;">
+            CareConnect
+        </span>
+        <span class="project-subtitle" style="font-family: 'Poppins', sans-serif; font-size: 20px; font-weight: 400; color: #555555; display: block; margin-top: 6px;">
+            Patient Scheduling Portal
+        </span>
+    </div>
+</div>
+
+<!-- Hospital Header CSS -->
+<style>
+@media (max-width: 768px) {
+    .hospital-header-section {
+        padding: 20px 15px 15px !important;
+    }
+    .hospital-name {
+        font-size: 28px !important;
+    }
+    .project-title {
+        font-size: 24px !important;
+    }
+    .project-subtitle {
+        font-size: 16px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hospital-header-section {
+        padding: 18px 12px 12px !important;
+    }
+    .hospital-name {
+        font-size: 24px !important;
+    }
+    .project-title {
+        font-size: 22px !important;
+    }
+    .project-subtitle {
+        font-size: 14px !important;
+    }
+}
+</style>
+
+<!-- Hero Background Image Section -->
+<section class="hero hero-image-section" style="position: relative; height: 85vh; min-height: 600px; overflow: hidden;">
+  <!-- Background Image -->
+  <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=1920&q=85"
+       alt="MedNova Hospital Building"
+       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center; filter: brightness(0.9) contrast(1.1) saturate(1.05);">
+
+  <!-- Overlay Gradient -->
+  <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.6) 40%, rgba(15, 23, 42, 0.2) 100%);"></div>
+
+  <!-- Content Container -->
+  <div class="container h-100" style="position: relative; z-index: 2;">
+    <div class="row h-100 align-items-center">
+      <div class="col-lg-7 col-xl-6">
+        <div class="hero-content animate-fade-in-up">
+          <h1 class="display-3 fw-bold mb-4" style="color: white; line-height: 1.2;">
+            Compassionate Care, <span class="text-info">Advanced Treatment</span>
+          </h1>
+          <p class="lead mb-4" style="color: rgba(255, 255, 255, 0.9); font-size: 1.25rem; max-width: 550px;">
+            Experience healthcare reimagined. Our expert doctors combine cutting-edge technology with genuine compassion to provide you with the best possible care.
+          </p>
+          <div class="d-flex flex-wrap gap-3 hero-buttons">
+            <a href="/register-page" class="btn btn-primary btn-lg px-4 py-3 fw-semibold">
+              <i class="fas fa-calendar-check me-2"></i>Book Appointment
+            </a>
+            <a href="#about" class="btn btn-outline-light btn-lg px-4 py-3 fw-semibold">
+              <i class="fas fa-info-circle me-2"></i>Learn More
+            </a>
+          </div>
+
+          <!-- Trust Indicators -->
+          <div class="mt-5 pt-3" style="border-top: 1px solid rgba(255, 255, 255, 0.2);">
+            <div class="d-flex flex-wrap gap-4">
+              <div class="d-flex align-items-center gap-2">
+                <div class="trust-icon">
+                  <i class="fas fa-user-md"></i>
+                </div>
+                <div>
+                  <strong style="color: white;">500+</strong>
+                  <span style="color: rgba(255, 255, 255, 0.7); font-size: 0.85rem;">Expert Doctors</span>
+                </div>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <div class="trust-icon">
+                  <i class="fas fa-users"></i>
+                </div>
+                <div>
+                  <strong style="color: white;">50K+</strong>
+                  <span style="color: rgba(255, 255, 255, 0.7); font-size: 0.85rem;">Happy Patients</span>
+                </div>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <div class="trust-icon">
+                  <i class="fas fa-award"></i>
+                </div>
+                <div>
+                  <strong style="color: white;">15+</strong>
+                  <span style="color: rgba(255, 255, 255, 0.7); font-size: 0.85rem;">Years Experience</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="scroll-indicator">
+    <a href="#about" class="text-white">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<style>
+.trust-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(14, 165, 233, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-light);
+  font-size: 1rem;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.scroll-mouse {
+  width: 26px;
+  height: 42: 2pxpx;
+  border solid rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+}
+
+.scroll-wheel {
+  width: 4px;
+  height: 8px;
+  background: white;
+  border-radius: 2px;
+  animation: scroll 2s infinite;
+}
+
+@keyframes scroll {
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(10px); }
+}
+
+@media (max-width: 991px) {
+  .hero-image-section {
+    height: 70vh !important;
+    min-height: 500px !important;
+  }
+  .hero-content .display-3 {
+    font-size: 2.25rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-image-section {
+    height: 80vh !important;
+    min-height: 550px !important;
+  }
+  .hero-content .display-3 {
+    font-size: 1.75rem !important;
+  }
+  .hero-buttons {
+    flex-direction: column !important;
+  }
+  .hero-buttons .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+</style>
+
+<!-- About Us Section -->
+<section class="py-5" id="about" style="background: #f8fafc;">
+    <div class="container">
+        <!-- Section Header -->
+        <div class="text-center mb-5 scroll-reveal">
+            <h2 class="fw-bold display-4" style="color: #0B3C5D; margin-bottom: 15px;">About Us</h2>
+            <p class="text-muted lead" style="font-size: 1.1rem; max-width: 700px; margin: 0 auto;">Discover who we are and our commitment to providing exceptional healthcare</p>
+            <div style="width: 80px; height: 4px; background: linear-gradient(90deg, #0B3C5D, #3B82F6); margin: 20px auto 0; border-radius: 2px;"></div>
+        </div>
+        
+        <!-- Two Column Layout: Text Left, Image Right -->
+        <div class="row g-5 align-items-center">
+            <!-- Left Column: Text Content -->
+            <div class="col-lg-6 scroll-reveal" style="transform: translateY(30px); opacity: 0; transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);">
+                <div style="padding-right: 20px;">
+                    <h3 style="color: #0B3C5D; font-size: 1.75rem; font-weight: 700; margin-bottom: 20px;">Welcome to MedNova Multispeciality Hospital</h3>
+                    <p style="color: #4B5563; font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px;">
+                        <strong>MedNova Multispeciality Hospital</strong> is a leading healthcare provider dedicated to delivering exceptional medical care with compassion and excellence. With state-of-the-art facilities and a team of highly skilled professionals, we strive to provide comprehensive healthcare solutions to our community.
+                    </p>
+                    <p style="color: #64748b; font-size: 1rem; line-height: 1.7; margin-bottom: 25px;">
+                        Our commitment to quality healthcare has made us a trusted name in the region. We combine advanced medical technology with a patient-centric approach to ensure the best possible outcomes for every patient who walks through our doors.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Right Column: Image -->
+            <div class="col-lg-6 scroll-reveal" style="transform: translateY(30px); opacity: 0; transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;">
+                <div style="position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=85" 
+                         alt="MedNova Hospital Building" 
+                         style="width: 100%; height: 450px; object-fit: cover; display: block; transition: transform 0.5s ease;">
+                    <!-- Overlay with decorative element -->
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(11, 60, 93, 0.85)); padding: 50px 30px 30px;">
+                        <p style="color: white; font-size: 1.1rem; font-weight: 600; margin: 0; text-align: center;">Committed to Excellence in Healthcare</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mission and Vision Cards with 3D Hover Effect -->
+        <div class="row g-4 mt-5">
+            <!-- Mission Card -->
+            <div class="col-md-6 scroll-reveal" style="transform: translateY(30px); opacity: 0; transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;">
+                <div class="mission-vision-card-3d" style="background: linear-gradient(135deg, #0B3C5D 0%, #1E5A8A 100%); border-radius: 20px; padding: 45px 35px; color: white; height: 100%; box-shadow: 0 15px 40px rgba(11, 60, 93, 0.3); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); transform-style: preserve-3d; perspective: 1000px;">
+                    <div style="transform: translateZ(20px);">
+                        <div class="mission-vision-icon" style="width: 80px; height: 80px; background: rgba(255,255,255,0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 28px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);">
+                            <i class="fas fa-bullseye" style="font-size: 2rem; color: white;"></i>
+                        </div>
+                        <h3 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 20px; color: white;">Our Mission</h3>
+                        <p style="font-size: 1.05rem; line-height: 1.75; color: rgba(255,255,255,0.92); margin-bottom: 0;">
+                            To provide accessible, high-quality healthcare with compassion and excellence. We are committed to improving the health and well-being of our patients through innovative medical practices, skilled professionals, and a patient-first approach to care.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Vision Card -->
+            <div class="col-md-6 scroll-reveal" style="transform: translateY(30px); opacity: 0; transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s;">
+                <div class="mission-vision-card-3d" style="background: linear-gradient(135deg, #059669 0%, #10B981 100%); border-radius: 20px; padding: 45px 35px; color: white; height: 100%; box-shadow: 0 15px 40px rgba(5, 150, 105, 0.3); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); transform-style: preserve-3d; perspective: 1000px;">
+                    <div style="transform: translateZ(20px);">
+                        <div class="mission-vision-icon" style="width: 80px; height: 80px; background: rgba(255,255,255,0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 28px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);">
+                            <i class="fas fa-eye" style="font-size: 2rem; color: white;"></i>
+                        </div>
+                        <h3 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 20px; color: white;">Our Vision</h3>
+                        <p style="font-size: 1.05rem; line-height: 1.75; color: rgba(255,255,255,0.92); margin-bottom: 0;">
+                            To be the most trusted and preferred healthcare provider in the region, recognized for clinical excellence, innovative care, and unwavering commitment to patient safety and satisfaction.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Key Features -->
+        <div class="row g-4 mt-4">
+            <!-- 24/7 Emergency Card -->
+            <div class="col-md-4 scroll-reveal" style="transform: translateY(30px); opacity: 0; transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.5s;">
+                <div class="feature-card-3d" style="background: #ffffff; border-radius: 16px; padding: 35px 28px; text-align: center; border: 1px solid #e2e8f0; height: 100%; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                    <div class="about-icon" style="width: 70px; height: 70px; background: linear-gradient(135deg, #0B3C5D 0%, #1E5A8A 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 22px; box-shadow: 0 8px 25px rgba(11, 60, 93, 0.3);">
+                        <i class="fas fa-ambulance" style="font-size: 1.6rem; color: white;"></i>
+                    </div>
+                    <h4 style="color: #0B3C5D; font-weight: 700; margin-bottom: 12px; font-size: 1.25rem;">24/7 Emergency</h4>
+                    <p style="color: #64748b; font-size: 0.95rem; line-height: 1.6; margin-bottom: 0;">Round-the-clock emergency services with fully equipped trauma center.</p>
+                </div>
+            </div>
+            <!-- Expert Doctors Card -->
+            <div class="col-md-4 scroll-reveal" style="transform: translateY(30px); opacity: 0; transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.6s;">
+                <div class="feature-card-3d" style="background: #ffffff; border-radius: 16px; padding: 35px 28px; text-align: center; border: 1px solid #e2e8f0; height: 100%; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                    <div class="about-icon" style="width: 70px; height: 70px; background: linear-gradient(135deg, #0B3C5D 0%, #1E5A8A 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 22px; box-shadow: 0 8px 25px rgba(11, 60, 93, 0.3);">
+                        <i class="fas fa-user-md" style="font-size: 1.6rem; color: white;"></i>
+                    </div>
+                    <h4 style="color: #0B3C5D; font-weight: 700; margin-bottom: 12px; font-size: 1.25rem;">Expert Doctors</h4>
+                    <p style="color: #64748b; font-size: 0.95rem; line-height: 1.6; margin-bottom: 0;">Highly qualified doctors specializing in various fields for comprehensive care.</p>
+                </div>
+            </div>
+            <!-- Advanced Equipment Card -->
+            <div class="col-md-4 scroll-reveal" style="transform: translateY(30px); opacity: 0; transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.7s;">
+                <div class="feature-card-3d" style="background: #ffffff; border-radius: 16px; padding: 35px 28px; text-align: center; border: 1px solid #e2e8f0; height: 100%; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                    <div class="about-icon" style="width: 70px; height: 70px; background: linear-gradient(135deg, #0B3C5D 0%, #1E5A8A 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 22px; box-shadow: 0 8px 25px rgba(11, 60, 93, 0.3);">
+                        <i class="fas fa-microscope" style="font-size: 1.6rem; color: white;"></i>
+                    </div>
+                    <h4 style="color: #0B3C5D; font-weight: 700; margin-bottom: 12px; font-size: 1.25rem;">Advanced Equipment</h4>
+                    <p style="color: #64748b; font-size: 0.95rem; line-height: 1.6; margin-bottom: 0;">Latest medical technology for accurate diagnosis and effective treatment.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3D Animation CSS -->
+<style>
+/* Mission/Vision Cards 3D Hover Effect */
+.mission-vision-card-3d:hover {
+    transform: translateY(-8px) rotateX(2deg);
+    box-shadow: 0 25px 60px rgba(11, 60, 93, 0.4);
+}
+
+.mission-vision-card-3d:hover .mission-vision-icon {
+    transform: scale(1.1);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+}
+
+.mission-vision-icon {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Feature Cards 3D Hover Effect */
+.feature-card-3d:hover {
+    transform: translateY(-8px) rotateX(1deg);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card-3d:hover .about-icon {
+    transform: scale(1.1);
+    box-shadow: 0 12px 35px rgba(11, 60, 93, 0.4);
+}
+
+/* Scroll Reveal Animation States */
+.scroll-reveal.visible {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+}
+
+/* Image hover effect */
+.scroll-reveal img:hover {
+    transform: scale(1.03);
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .scroll-reveal {
+        transform: translateY(20px) !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .mission-vision-card-3d,
+    .feature-card-3d {
+        padding: 30px 20px !important;
+    }
+    
+    .mission-vision-icon,
+    .feature-card-3d .about-icon {
+        width: 60px !important;
+        height: 60px !important;
+    }
+    
+    .mission-vision-icon i,
+    .feature-card-3d .about-icon i {
+        font-size: 1.4rem !important;
+    }
+}
+</style>
+
+<!-- Intersection Observer Animation Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Create Intersection Observer for scroll-triggered animations
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Optional: stop observing once animated
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observe all scroll-reveal elements
+    document.querySelectorAll('.scroll-reveal').forEach(el => {
+        observer.observe(el);
+    });
+});
+</script>
+
+<!-- Our Expert Doctors Section -->
+<section class="py-5" style="background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);">
+    <div class="container">
+        <!-- Section Header -->
+        <div class="text-center mb-5 animate-fade-in-up">
+            <h2 class="fw-bold display-5" style="color: #1E3A8A; margin-bottom: 10px;">Meet Our Specialist Doctors</h2>
+            <p class="text-muted lead" style="font-size: 1.1rem;">Experienced and Trusted Medical Professionals</p>
+            <div style="width: 80px; height: 4px; background: linear-gradient(90deg, #1E3A8A, #3B82F6); margin: 15px auto 0; border-radius: 2px;"></div>
+        </div>
+        
+        <!-- Doctor Cards Grid using CSS Grid -->
+        <div class="doctor-grid">
+            <!-- Doctor 1: Dr. Arjun Kumar – Cardiologist -->
+            <div class="doctor-card animate-slide-left" style="animation-delay: 0s;">
+                <div class="doctor-image">
+                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=80" alt="Dr. Arjun Kumar - Cardiologist">
+                </div>
+                <div class="doctor-info">
+                    <h4 class="doctor-name">Dr. Arjun Kumar</h4>
+                    <p class="doctor-specialization">Cardiologist</p>
+                </div>
+            </div>
+            
+            <!-- Doctor 2: Dr. Meena Ravi – Neurologist -->
+            <div class="doctor-card animate-slide-left" style="animation-delay: 0.2s;">
+                <div class="doctor-image">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80" alt="Dr. Meena Ravi - Neurologist">
+                </div>
+                <div class="doctor-info">
+                    <h4 class="doctor-name">Dr. Meena Ravi</h4>
+                    <p class="doctor-specialization">Neurologist</p>
+                </div>
+            </div>
+            
+            <!-- Doctor 3: Dr. Sanjay Patel – Orthopedic Surgeon -->
+            <div class="doctor-card animate-slide-left" style="animation-delay: 0.4s;">
+                <div class="doctor-image">
+                    <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&q=80" alt="Dr. Sanjay Patel - Orthopedic Surgeon">
+                </div>
+                <div class="doctor-info">
+                    <h4 class="doctor-name">Dr. Sanjay Patel</h4>
+                    <p class="doctor-specialization">Orthopedic Surgeon</p>
+                </div>
+            </div>
+            
+            <!-- Doctor 4: Dr. Priya Sharma – Pediatrician -->
+            <div class="doctor-card animate-slide-left" style="animation-delay: 0.6s;">
+                <div class="doctor-image">
+                    <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&q=80" alt="Dr. Priya Sharma - Pediatrician">
+                </div>
+                <div class="doctor-info">
+                    <h4 class="doctor-name">Dr. Priya Sharma</h4>
+                    <p class="doctor-specialization">Pediatrician</p>
+                </div>
+            </div>
+            
+            <!-- Doctor 5: Dr. Ahmed Khan – General Physician -->
+            <div class="doctor-card animate-slide-left" style="animation-delay: 0.8s;">
+                <div class="doctor-image">
+                    <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400&q=80" alt="Dr. Ahmed Khan - General Physician">
+                </div>
+                <div class="doctor-info">
+                    <h4 class="doctor-name">Dr. Ahmed Khan</h4>
+                    <p class="doctor-specialization">General Physician</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Doctor Cards CSS -->
+<style>
+/* Doctor Grid - CSS Grid Layout */
+.doctor-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+    justify-content: center;
+    padding: 0 15px;
+}
+
+/* Doctor Card Styles - Fixed 250px width and equal height */
+.doctor-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.doctor-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(30, 58, 138, 0.2);
+}
+
+/* Doctor Image - 300px height, 100% width, object-fit cover, border-radius 10px */
+.doctor-image {
+    position: relative;
+    height: 300px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.doctor-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center top;
+    transition: transform 0.4s ease;
+    border-radius: 10px;
+}
+
+.doctor-card:hover .doctor-image img {
+    transform: scale(1.08);
+}
+
+.doctor-overlay {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.experience-badge {
+    background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    box-shadow: 0 2px 10px rgba(30, 58, 138, 0.3);
+}
+
+.doctor-info {
+    padding: 25px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.doctor-name {
+    color: #1E3A8A;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.doctor-specialization {
+    color: #64748b;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.btn-book-appointment {
+    background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+}
+
+.btn-book-appointment:hover {
+    background: linear-gradient(135deg, #2563EB 0%, #3B82F6 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(30, 58, 138, 0.4);
+}
+
+/* Left to Right Slide Animation */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-80px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-slide-left {
+    animation: slideInRight 0.8s ease-out backwards;
+}
+
+/* Responsive - Tablet (768px - 1199px) */
+@media (max-width: 1199px) {
+    .doctor-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Responsive - Mobile (<768px) */
+@media (max-width: 767px) {
+    .doctor-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    
+    .doctor-image {
+        height: 200px;
+    }
+    
+    .doctor-image img {
+        height: 200px;
+    }
+    
+    .doctor-info {
+        padding: 15px;
+    }
+    
+    .doctor-name {
+        font-size: 1rem;
+    }
+    
+    .doctor-specialization {
+        font-size: 0.85rem;
+    }
+}
+</style>
+
+<!-- Hero Slider Section -->
+<section class="hero-slider-section">
+    <div class="slider-container">
+        <!-- Slide 1 -->
+        <div class="slide active">
+            <img src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=1920&q=85" alt="Modern Hospital Building" class="slide-image">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <h1 class="hero-title">Comprehensive Healthcare Services</h1>
+                <p class="hero-subtitle">World-class medical care with cutting-edge technology and compassionate experts</p>
+                <a href="/register-page" class="btn btn-light btn-lg px-5 mt-3">
+                    <i class="fas fa-calendar-check me-2"></i>Book Appointment
+                </a>
+            </div>
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=1920&q=85" alt="Medical Team" class="slide-image">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <h1 class="hero-title">Expert Medical Professionals</h1>
+                <p class="hero-subtitle">Our team of specialists is dedicated to providing you with the best possible care</p>
+                <a href="/services" class="btn btn-light btn-lg px-5 mt-3">
+                    <i class="fas fa-stethoscope me-2"></i>Our Services
+                </a>
+            </div>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=1920&q=85" alt="Emergency Care" class="slide-image">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <h1 class="hero-title">24/7 Emergency & Critical Care</h1>
+                <p class="hero-subtitle">Round-the-clock emergency services with state-of-the-art trauma center</p>
+                <a href="/contact" class="btn btn-light btn-lg px-5 mt-3">
+                    <i class="fas fa-phone me-2"></i>Contact Us
+                </a>
+            </div>
+        </div>
+        
+        <!-- Slider Navigation -->
+        <div class="slider-nav">
+            <button class="nav-dot active" data-slide="0"></button>
+            <button class="nav-dot" data-slide="1"></button>
+            <button class="nav-dot" data-slide="2"></button>
+        </div>
+        
+        <!-- Arrow Navigation -->
+        <button class="slider-arrow prev" onclick="changeSlide(-1)">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="slider-arrow next" onclick="changeSlide(1)">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+</section>
+
+<!-- Hero Slider CSS -->
+<style>
+/* Hero Slider Section */
+.hero-slider-section {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    min-height: 500px;
+    max-height: 700px;
+    overflow: hidden;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Slide Styles */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.slide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1);
+    transition: transform 6s ease;
+}
+
+.slide.active .slide-image {
+    transform: scale(1.1);
+}
+
+/* Dark Blue Overlay */
+.slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(11, 60, 93, 0.7);
+    z-index: 1;
+}
+
+/* Slide Content */
+.slide-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+    padding: 0 20px;
+    max-width: 900px;
+    opacity: 0;
+    transform: translate(-50%, -40%);
+    transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+}
+
+.slide.active .slide-content {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+/* Slider Navigation Dots */
+.slider-nav {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    gap: 12px;
+}
+
+.nav-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.nav-dot:hover {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.nav-dot.active {
+    background: #ffffff;
+    transform: scale(1.2);
+}
+
+/* Slider Arrows */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+}
+
+.slider-arrow:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.slider-arrow.prev {
+    left: 30px;
+}
+
+.slider-arrow.next {
+    right: 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+    .hero-slider-section {
+        height: 60vh;
+        min-height: 450px;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .slider-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .slider-arrow.prev {
+        left: 15px;
+    }
+    
+    .slider-arrow.next {
+        right: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-slider-section {
+        height: 55vh;
+        min-height: 400px;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+    
+    .slide-content {
+        padding: 0 15px;
+    }
+    
+    .slider-arrow {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+    
+    .slider-nav {
+        bottom: 20px;
+    }
+    
+    .nav-dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+</style>
+
+<!-- Hero Slider JavaScript -->
+<script>
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.nav-dot');
+const totalSlides = slides.length;
+let slideInterval;
+
+// Auto slide function
+function autoSlide() {
+    slideInterval = setInterval(() => {
+        changeSlide(1);
+    }, 5000);
+}
+
+// Change slide function
+function changeSlide(direction) {
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    
+    currentSlide += direction;
+    
+    if (currentSlide >= totalSlides) {
+        currentSlide = 0;
+    } else if (currentSlide < 0) {
+        currentSlide = totalSlides - 1;
+    }
+    
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+}
+
+// Go to specific slide
+function goToSlide(slideIndex) {
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    
+    currentSlide = slideIndex;
+    
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+}
+
+// Add click events to dots
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        goToSlide(index);
+        resetInterval();
+    });
+});
+
+// Reset interval when manually changing slides
+function resetInterval() {
+    clearInterval(slideInterval);
+    autoSlide();
+}
+
+// Pause on hover
+const sliderSection = document.querySelector('.hero-slider-section');
+sliderSection.addEventListener('mouseenter', () => {
+    clearInterval(slideInterval);
+});
+
+sliderSection.addEventListener('mouseleave', () => {
+    autoSlide();
+});
+
+// Initialize
+autoSlide();
+</script>
+
+<!-- CTA Section -->
+<section class="py-5 section-bg">
+    <div class="container">
+        <div class="cta-section">
+            <h2 class="display-5 fw-bold">Ready to Get Started?</h2>
+            <p class="lead mb-4">Join thousands of patients who trust CareConnect for their healthcare needs.</p>
+            <a href="/register-page" class="btn btn-light btn-lg px-5">
+                <i class="fas fa-user-plus me-2"></i>Create Free Account
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

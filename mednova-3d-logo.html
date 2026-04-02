@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedNova 3D Logo Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           MEDNOVA 3D LOGO - Premium Hospital Branding
+           ======================================== */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        /* ========================================
+           3D LOGO STYLES
+           ======================================== */
+
+        /* Main 3D Circle Container */
+        .mednova-logo-3d {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            filter: drop-shadow(0 8px 16px rgba(30, 58, 138, 0.25));
+        }
+
+        /* Outer 3D Ring - Creates depth */
+        .logo-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #2563EB 0%, #1E3A8A 50%, #1e3a8a 100%);
+            box-shadow: 
+                0 4px 8px rgba(0, 0, 0, 0.15),
+                0 8px 16px rgba(30, 58, 138, 0.2),
+                inset 0 2px 4px rgba(255, 255, 255, 0.2),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Inner Circle - Lighter for depth */
+        .logo-inner {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #3B82F6 0%, #1E40AF 50%, #1E3A8A 100%);
+            box-shadow: 
+                inset 0 2px 4px rgba(255, 255, 255, 0.15),
+                inset 0 -2px 6px rgba(0, 0, 0, 0.2),
+                0 2px 4px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Highlight Effect - Top left light source */
+        .logo-highlight {
+            position: absolute;
+            top: 12px;
+            left: 18px;
+            width: 30px;
+            height: 20px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.3) 0%, transparent 100%);
+            border-radius: 50%;
+            filter: blur(4px);
+        }
+
+        /* Medical Cross */
+        .logo-cross {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Horizontal bar of cross */
+        .logo-cross::before {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 10px;
+            background: #ffffff;
+            border-radius: 3px;
+            box-shadow: 
+                0 1px 2px rgba(0, 0, 0, 0.1),
+                inset 0 1px 1px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Vertical bar of cross */
+        .logo-cross::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 40px;
+            background: #ffffff;
+            border-radius: 3px;
+            box-shadow: 
+                0 1px 2px rgba(0, 0, 0, 0.1),
+                inset 0 1px 1px rgba(255, 255, 255, 0.5);
+        }
+
+        /* ========================================
+           SMALLER VERSION (For navigation, etc.)
+           ======================================== */
+
+        .mednova-logo-3d.sm {
+            width: 50px;
+            height: 50px;
+        }
+
+        .mednova-logo-3d.sm .logo-inner {
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+        }
+
+        .mednova-logo-3d.sm .logo-cross {
+            width: 20px;
+            height: 20px;
+        }
+
+        .mednova-logo-3d.sm .logo-cross::before {
+            width: 20px;
+            height: 5px;
+        }
+
+        .mednova-logo-3d.sm .logo-cross::after {
+            width: 5px;
+            height: 20px;
+        }
+
+        .mednova-logo-3d.sm .logo-highlight {
+            top: 6px;
+            left: 10px;
+            width: 15px;
+            height: 10px;
+        }
+
+        /* ========================================
+           LARGER VERSION (For hero section)
+           ======================================== */
+
+        .mednova-logo-3d.lg {
+            width: 180px;
+            height: 180px;
+            filter: drop-shadow(0 12px 24px rgba(30, 58, 138, 0.3));
+        }
+
+        .mednova-logo-3d.lg .logo-inner {
+            top: 12px;
+            left: 12px;
+            right: 12px;
+            bottom: 12px;
+        }
+
+        .mednova-logo-3d.lg .logo-cross {
+            width: 60px;
+            height: 60px;
+        }
+
+        .mednova-logo-3d.lg .logo-cross::before {
+            width: 60px;
+            height: 14px;
+        }
+
+        .mednova-logo-3d.lg .logo-cross::after {
+            width: 14px;
+            height: 60px;
+        }
+
+        .mednova-logo-3d.lg .logo-highlight {
+            top: 18px;
+            left: 28px;
+            width: 45px;
+            height: 30px;
+        }
+
+        /* ========================================
+           HEADER USAGE EXAMPLE
+           ======================================== */
+
+        .header-example {
+            background: #ffffff;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border-radius: 8px;
+        }
+
+        .header-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1E3A8A;
+        }
+
+        /* ========================================
+           RESPONSIVE
+           ======================================== */
+
+        @media (max-width: 768px) {
+            .mednova-logo-3d {
+                width: 80px;
+                height: 80px;
+            }
+
+            .mednova-logo-3d.lg {
+                width: 120px;
+                height: 120px;
+            }
+
+            .header-text {
+                font-size: 1.1rem;
+            }
+
+            .header-example {
+                padding: 15px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mednova-logo-3d {
+                width: 60px;
+                height: 60px;
+            }
+
+            .mednova-logo-3d.lg {
+                width: 100px;
+                height: 100px;
+            }
+
+            .header-text {
+                font-size: 1rem;
+            }
+        }
+
+        /* ========================================
+           SVG VERSION STYLES
+           ======================================== */
+
+        .logo-svg {
+            width: 120px;
+            height: 120px;
+            filter: drop-shadow(0 8px 16px rgba(30, 58, 138, 0.25));
+        }
+
+        .logo-svg.sm {
+            width: 50px;
+            height: 50px;
+        }
+
+        .logo-svg.lg {
+            width: 180px;
+            height: 180px;
+        }
+
+        /* ========================================
+           PAGE LAYOUT
+           ======================================== */
+
+        .demo-section {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .demo-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            color: #1E3A8A;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .demo-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-wrapper span {
+            font-size: 0.9rem;
+            color: #6B7280;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        
+        <!-- Demo Section 1: Different Sizes -->
+        <div class="demo-section">
+            <h2>MedNova 3D Logo - Size Variations</h2>
+            <div class="demo-grid">
+                <div class="logo-wrapper">
+                    <!-- Small -->
+                    <div class="mednova-logo-3d sm"></div>
+                    <span>Small (50px)</span>
+                </div>
+                <div class="logo-wrapper">
+                    <!-- Medium (Default) -->
+                    <div class="mednova-logo-3d"></div>
+                    <span>Medium (120px)</span>
+                </div>
+                <div class="logo-wrapper">
+                    <!-- Large -->
+                    <div class="mednova-logo-3d lg"></div>
+                    <span>Large (180px)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Demo Section 2: Header Usage -->
+        <div class="demo-section">
+            <h2>Header Usage Example</h2>
+            <div class="header-example">
+                <div class="mednova-logo-3d sm"></div>
+                <span class="header-text">MedNova Multispeciality Hospital</span>
+            </div>
+        </div>
+
+        <!-- Demo Section 3: SVG Version -->
+        <div class="demo-section">
+            <h2>SVG Version (Scalable)</h2>
+            <div class="demo-grid">
+                <div class="logo-wrapper">
+                    <!-- SVG Small -->
+                    <svg class="logo-svg sm" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Outer circle with 3D effect -->
+                        <defs>
+                            <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#3B82F6"/>
+                                <stop offset="50%" style="stop-color:#1E40AF"/>
+                                <stop offset="100%" style="stop-color:#1E3A8A"/>
+                            </linearGradient>
+                            <linearGradient id="innerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#60A5FA"/>
+                                <stop offset="50%" style="stop-color:#2563EB"/>
+                                <stop offset="100%" style="stop-color:#1E40AF"/>
+                            </linearGradient>
+                            <filter id="innerShadow" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+                                <feOffset in="blur" dx="0" dy="2" result="offsetBlur"/>
+                                <feComposite in="SourceGraphic" in2="offsetBlur" operator="over"/>
+                            </filter>
+                            <filter id="dropShadow" x="-50%" y="-50%" width="200%" height="200%">
+                                <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#1E3A8A" flood-opacity="0.25"/>
+                            </filter>
+                        </defs>
+                        
+                        <!-- Main circle with 3D effect -->
+                        <circle cx="50" cy="50" r="48" fill="url(#blueGradient)" filter="url(#dropShadow)"/>
+                        
+                        <!-- Inner circle for depth -->
+                        <circle cx="50" cy="50" r="40" fill="url(#innerGradient)"/>
+                        
+                        <!-- Highlight for 3D effect -->
+                        <ellipse cx="40" cy="35" rx="15" ry="10" fill="rgba(255,255,255,0.2)" filter="blur(3px)"/>
+                        
+                        <!-- Medical Cross -->
+                        <rect x="35" y="42" width="30" height="8" rx="2" fill="white"/>
+                        <rect x="42" y="35" width="8" height="30" rx="2" fill="white"/>
+                    </svg>
+                    <span>SVG Small</span>
+                </div>
+                <div class="logo-wrapper">
+                    <!-- SVG Medium -->
+                    <svg class="logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="blueGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#3B82F6"/>
+                                <stop offset="50%" style="stop-color:#1E40AF"/>
+                                <stop offset="100%" style="stop-color:#1E3A8A"/>
+                            </linearGradient>
+                            <linearGradient id="innerGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#60A5FA"/>
+                                <stop offset="50%" style="stop-color:#2563EB"/>
+                                <stop offset="100%" style="stop-color:#1E40AF"/>
+                            </linearGradient>
+                            <filter id="dropShadow2" x="-50%" y="-50%" width="200%" height="200%">
+                                <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#1E3A8A" flood-opacity="0.25"/>
+                            </filter>
+                        </defs>
+                        <circle cx="50" cy="50" r="48" fill="url(#blueGradient2)" filter="url(#dropShadow2)"/>
+                        <circle cx="50" cy="50" r="40" fill="url(#innerGradient2)"/>
+                        <ellipse cx="40" cy="35" rx="15" ry="10" fill="rgba(255,255,255,0.2)" filter="blur(3px)"/>
+                        <rect x="35" y="42" width="30" height="8" rx="2" fill="white"/>
+                        <rect x="42" y="35" width="8" height="30" rx="2" fill="white"/>
+                    </svg>
+                    <span>SVG Medium</span>
+                </div>
+                <div class="logo-wrapper">
+                    <!-- SVG Large -->
+                    <svg class="logo-svg lg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="blueGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#3B82F6"/>
+                                <stop offset="50%" style="stop-color:#1E40AF"/>
+                                <stop offset="100%" style="stop-color:#1E3A8A"/>
+                            </linearGradient>
+                            <linearGradient id="innerGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#60A5FA"/>
+                                <stop offset="50%" style="stop-color:#2563EB"/>
+                                <stop offset="100%" style="stop-color:#1E40AF"/>
+                            </linearGradient>
+                            <filter id="dropShadow3" x="-50%" y="-50%" width="200%" height="200%">
+                                <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#1E3A8A" flood-opacity="0.25"/>
+                            </filter>
+                        </defs>
+                        <circle cx="50" cy="50" r="48" fill="url(#blueGradient3)" filter="url(#dropShadow3)"/>
+                        <circle cx="50" cy="50" r="40" fill="url(#innerGradient3)"/>
+                        <ellipse cx="40" cy="35" rx="15" ry="10" fill="rgba(255,255,255,0.2)" filter="blur(3px)"/>
+                        <rect x="35" y="42" width="30" height="8" rx="2" fill="white"/>
+                        <rect x="42" y="35" width="8" height="30" rx="2" fill="white"/>
+                    </svg>
+                    <span>SVG Large</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Demo Section 4: Dark Background Test -->
+        <div class="demo-section" style="background: #1E3A8A;">
+            <h2 style="color: white;">Dark Background Usage</h2>
+            <div class="demo-grid">
+                <div class="logo-wrapper">
+                    <div class="mednova-logo-3d"></div>
+                </div>
+                <div class="logo-wrapper">
+                    <span style="color: rgba(255,255,255,0.8);">MedNova Multispeciality Hospital</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

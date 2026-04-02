@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}CareConnect - Hospital Appointment Booking{% endblock %}</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* Header and navbar custom styling */
+        body { 
+            margin:0; 
+            font-family: 'Poppins', sans-serif;
+            background: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Main content wrapper to push footer down */
+        .main-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Content area */
+        .content-area {
+            flex: 1;
+        }
+
+        /* Main container for centered content */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* Smooth scrolling effect */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ========================================
+           NAVIGATION BAR
+           ======================================== */
+        
+        .navbar-custom {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 0;
+            flex-wrap: wrap;
+            gap: 0;
+            position: relative;
+        }
+
+        /* Logo styling */
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            margin-right: 20px;
+            flex-direction: row;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .navbar-logo img {
+            height: 80px;
+            width: auto;
+            object-fit: contain;
+            margin-bottom: 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .navbar-logo img:hover {
+            transform: translateY(-3px);
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15));
+        }
+        
+        /* Hospital name */
+        .hospital-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #0B3C5D;
+            white-space: nowrap;
+        }
+        
+        /* Slogan text beside logo */
+        .navbar-slogan {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            color: #555555;
+            letter-spacing: 0.5px;
+            margin-top: 0;
+            white-space: nowrap;
+            border-left: 2px solid #e5e7eb;
+            padding-left: 15px;
+        }
+        
+        /* Menu container - all items on one line */
+        .navbar-menu {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+            padding-right: 20px;
+        }
+        
+        .navbar-custom a {
+            margin: 0;
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 0.2px;
+            position: relative;
+            transition: all 0.2s ease;
+            display: inline-block;
+            padding: 20px;
+            border-bottom: 2px solid transparent;
+            margin-right: 5px;
+        }
+        
+        .navbar-custom a:hover {
+            color: #1E3A8A;
+            background: rgba(30, 58, 138, 0.03);
+        }
+
+        .navbar-custom a:active {
+            background: rgba(30, 58, 138, 0.06);
+        }
+        
+        /* Auth Section - Right Side */
+        .auth-section {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-left: auto;
+            padding-right: 20px;
+        }
+
+        /* 3D Style Buttons - Reduced Size with Animation */
+        .btn-3d {
+            padding: 6px 16px;
+            font-weight: 500;
+            font-size: 13px;
+            border-radius: 5px;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            text-decoration: none;
+            display: inline-block;
+            transform: translateY(0);
+        }
+
+        .btn-login {
+            background: #6b7280;
+            color: #fff !important;
+            border: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-login:hover {
+            background: #4b5563;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .btn-login:active {
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+            transform: translateY(1px);
+        }
+
+        .btn-register {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: #fff !important;
+            border: none;
+            box-shadow: 0 2px 4px rgba(16, 185, 129, 0.3), 0 1px 2px rgba(16, 185, 129, 0.2);
+        }
+
+        .btn-register:hover {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            box-shadow: 0 4px 8px rgba(16, 185, 129, 0.35), 0 2px 4px rgba(16, 185, 129, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .btn-register:active {
+            box-shadow: 0 1px 2px rgba(16, 185, 129, 0.25);
+            transform: translateY(1px);
+        }
+        
+        /* ========================================
+           RESPONSIVE DESIGN
+           ======================================== */
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .header-logo,
+            .auth-section-placeholder {
+                display: none;
+            }
+
+            .hospital-name {
+                font-size: 22px;
+            }
+            .portal-subtitle {
+                font-size: 14px;
+            }
+
+            .navbar-custom {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .navbar-custom a {
+                padding: 14px 20px;
+                border-bottom: 1px solid #f3f4f6;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* ========================================
+           FOOTER - Light Green Medical Theme
+           ======================================== */
+        .footer-section {
+            background: #f0fdf4;
+            padding: 50px 0 30px;
+            border-top: 1px solid #dcfce7;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        .footer-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-section .row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+
+        .footer-section .col-lg-4 {
+            flex: 1;
+            min-width: 250px;
+            padding: 0 15px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section h5 {
+            color: #047857;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .footer-section h5 i {
+            color: #10B981;
+        }
+
+        .footer-section p {
+            color: #4b5563;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        .footer-section ul {
+            text-align: center;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .footer-section ul li a {
+            color: #4b5563;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #059669;
+        }
+
+        .footer-section .social-links {
+            text-align: center;
+        }
+
+        .footer-section .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #059669;
+            transition: all 0.2s ease;
+        }
+
+        .footer-section .social-links a:hover {
+            color: #047857;
+            transform: scale(1.1);
+        }
+
+        .footer-section hr {
+            border-color: #dcfce7;
+            margin: 30px 0;
+        }
+
+        .footer-section .copyright {
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+        /* Footer responsive */
+        @media (max-width: 768px) {
+            .footer-section {
+                padding: 40px 0 25px;
+            }
+
+            .footer-section .col-lg-4 {
+                text-align: center;
+                margin-bottom: 25px;
+            }
+
+            .footer-section h5 {
+                margin-bottom: 15px;
+            }
+        }
+
+    </style>
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <!-- ========================================
+         NAVIGATION BAR
+         ======================================== -->
+    <nav class="navbar-custom">
+        <!-- Logo -->
+        <div class="navbar-logo">
+            <a href="/">
+                <img src="{{ url_for('static', filename='images/careconnect-logo.svg') }}" alt="CareConnect Logo">
+            </a>
+            <span class="hospital-name">MedNova Hospital</span>
+            <span class="navbar-slogan">Patient Scheduling Portal</span>
+        </div>
+        
+        <!-- Menu Items - All on one line -->
+        <div class="navbar-menu">
+            <a href="/"><i class="fas fa-home me-2"></i>Home</a>
+            <a href="{{ url_for('services') }}"><i class="fas fa-stethoscope me-2"></i>Services</a>
+            <a href="#about"><i class="fas fa-info-circle me-2"></i>About Us</a>
+            
+            <!-- Login Dropdown -->
+            <div class="dropdown">
+                <a href="#" class="btn-3d btn-login dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-sign-in-alt me-2"></i>Login
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" style="border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.15); border-radius: 8px; padding: 8px 0;">
+                    <li><a class="dropdown-item" href="/login-page" style="padding: 10px 20px; font-weight: 500;"><i class="fas fa-user me-2"></i>Patient Login</a></li>
+                    <li><a class="dropdown-item" href="/admin-login" style="padding: 10px 20px; font-weight: 500;"><i class="fas fa-user-shield me-2"></i>Admin Login</a></li>
+                    <li><a class="dropdown-item" href="/doctor-login" style="padding: 10px 20px; font-weight: 500;"><i class="fas fa-user-md me-2"></i>Doctor Login</a></li>
+                </ul>
+            </div>
+            
+            <a href="/register-page" class="btn-3d btn-register">
+                <i class="fas fa-user-plus me-2"></i>Register
+            </a>
+        </div>
+    </nav>
+
+    <script>
+        function toggleDropdown(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            const dropdown = document.getElementById('loginDropdown');
+            const dropdownMenu = document.getElementById('loginDropdownMenu');
+            dropdown.classList.toggle('show');
+            dropdownMenu.classList.toggle('show');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('loginDropdown');
+            const dropdownMenu = document.getElementById('loginDropdownMenu');
+            if (!dropdown.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                dropdown.classList.remove('show');
+                dropdownMenu.classList.remove('show');
+            }
+        });
+    </script>
+
+    <!-- Flash Messages -->
+    <div class="container mt-3">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                    <i class="fas fa-info-circle me-2"></i>
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <!-- Main Content -->
+    {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="fw-bold"><i class="fas fa-hospital-alt me-2"></i>CareConnect</h5>
+                    <p class="small">Your trusted partner in healthcare. Book appointments with top doctors easily and get the care you deserve.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="fw-bold">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="/">Home</a></li>
+                        <li class="mb-2"><a href="/login-page">Login</a></li>
+                        <li class="mb-2"><a href="/register-page">Register</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="fw-bold">Contact</h5>
+                    <p class="small mb-2"><i class="fas fa-phone me-2"></i>+1 234 567 8900</p>
+                    <p class="small mb-2"><i class="fas fa-envelope me-2"></i>info@careconnect.com</p>
+                    <p class="small mb-0"><i class="fas fa-map-marker-alt me-2"></i>123 Medical Center, Health City</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="small mb-0">&copy; 2024 CareConnect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

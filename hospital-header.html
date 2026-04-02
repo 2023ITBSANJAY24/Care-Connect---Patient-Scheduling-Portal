@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedNova Hospital</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@600&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .hospital-header {
+            background-color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            flex-wrap: wrap;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            background-color: #3b82f6; /* A shade of blue */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 12px;
+            box-shadow: 0 2px 6px rgba(59, 130, 246, 0.3);
+        }
+
+        .hospital-name {
+            font-weight: 700;
+            font-size: 24px;
+            color: #1E3A8A;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #1F2937;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav a:hover {
+            color: #1E3A8A;
+        }
+
+        .project-title-section {
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
+        .project-title-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stethoscope-icon {
+            width: 32px;
+            height: 32px;
+            color: #1E3A8A;
+        }
+
+        .project-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: #1E3A8A;
+            margin: 0;
+        }
+
+        .project-subtitle {
+            font-size: 14px;
+            color: #6B7280;
+            margin-top: 0.5rem;
+        }
+
+        .nav-toggle {
+            display: none;
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 0;
+        }
+
+        .nav-toggle .icon-bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #1F2937;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+
+        @media (max-width: 768px) {
+            .hospital-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .main-nav {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+
+            .main-nav.active {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: block;
+                position: absolute;
+                top: 1.5rem;
+                right: 2rem;
+            }
+
+            .project-title {
+                font-size: 24px;
+            }
+
+             .stethoscope-icon {
+                width: 28px;
+                height: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hospital-header">
+        <div class="header-brand">
+            <div class="logo">+</div>
+            <h1 class="hospital-name">MedNova Hospital</h1>
+        </div>
+        <button class="nav-toggle" id="navToggle">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <nav class="main-nav" id="mainNav">
+            <a href="#">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+            <a href="#">Login</a>
+            <a href="#">Register</a>
+        </nav>
+    </header>
+
+    <section class="project-title-section">
+        <div class="project-title-container">
+             <svg class="stethoscope-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M6.012 3.255A8.02 8.02 0 0 1 12 2a8.02 8.02 0 0 1 5.988 1.255l-1.78.89A6.02 6.02 0 0 0 12 4a6.02 6.02 0 0 0-4.208 1.145l-1.78-.89ZM4.232 5.145A8.002 8.002 0 0 1 10.5 16.03v2.52a.75.75 0 0 0 .75.75h1.5a.75.75 0 0 0 .75-.75v-2.52A8.002 8.002 0 0 1 19.768 5.145l-1.78.89A6.002 6.002 0 0 0 13.5 15.115v-3.649a.75.75 0 0 0-.53-1.06l-2.025-.507a.75.75 0 0 0-.89.53L8.85 14.54l-1.78-.89a6.002 6.002 0 0 0-2.837-10.4l1.78-.89A8.002 8.002 0 0 1 4.232 5.145ZM18.5 22a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm-13 0a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+             </svg>
+            <h2 class="project-title">CareConnect</h2>
+        </div>
+        <p class="project-subtitle">Patient Scheduling Portal</p>
+    </section>
+
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const mainNav = document.getElementById('mainNav');
+
+        navToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+    </script>
+
+</body>
+</html>

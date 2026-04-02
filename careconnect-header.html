@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareConnect - Patient Scheduling Portal</title>
+    <!-- Google Fonts - Poppins & Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        /* ========================================
+           PROFESSIONAL HEADER SECTION
+           ======================================== */
+        
+        .header-section {
+            background: #ffffff;
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            position: relative;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        /* Hospital Logo - 3D Circle with White Cross */
+        .hospital-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #2563EB 0%, #1E3A8A 50%, #1e3a8a 100%);
+            box-shadow: 
+                0 4px 8px rgba(0, 0, 0, 0.15),
+                0 8px 16px rgba(30, 58, 138, 0.2),
+                inset 0 2px 4px rgba(255, 255, 255, 0.2),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        /* Inner circle for 3D depth */
+        .hospital-logo::before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            right: 6px;
+            bottom: 6px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #3B82F6 0%, #1E40AF 50%, #1E3A8A 100%);
+            box-shadow: 
+                inset 0 2px 4px rgba(255, 255, 255, 0.15),
+                inset 0 -2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Highlight for 3D lighting effect */
+        .hospital-logo::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 14px;
+            width: 16px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 50%;
+            filter: blur(3px);
+            z-index: 1;
+        }
+
+        /* Medical Cross */
+        .logo-cross {
+            position: relative;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .logo-cross::before,
+        .logo-cross::after {
+            content: '';
+            position: absolute;
+            background: #ffffff;
+            border-radius: 2px;
+        }
+
+        .logo-cross::before {
+            width: 28px;
+            height: 6px;
+        }
+
+        .logo-cross::after {
+            width: 6px;
+            height: 28px;
+        }
+
+        /* Hospital Name */
+        .hospital-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1E3A8A;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        /* ========================================
+           CENTER SECTION - CareConnect Portal
+           ======================================== */
+
+        .center-section {
+            background: #f8fbff;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(30, 58, 138, 0.1);
+        }
+
+        .center-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Project Title with Icon */
+        .project-title-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        /* Stethoscope SVG Icon */
+        .title-icon {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        .title-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: #1E3A8A;
+        }
+
+        /* Project Title - CareConnect */
+        .project-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: #1E3A8A;
+            letter-spacing: 0.5px;
+            margin: 0;
+        }
+
+        /* Subtitle - Patient Scheduling Portal */
+        .project-subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: #6B7280;
+            letter-spacing: 0.3px;
+            text-align: center;
+            margin: 0;
+        }
+
+        /* ========================================
+           NAVIGATION BAR
+           ======================================== */
+
+        .navbar {
+            background: #ffffff;
+            padding: 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            position: relative;
+            z-index: 1000;
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 18px 24px;
+            text-decoration: none;
+            color: #374151;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: #2563EB;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover {
+            color: #1E3A8A;
+            background: rgba(37, 99, 235, 0.04);
+        }
+
+        .nav-link:hover::before {
+            width: 60%;
+        }
+
+        /* Book Appointment Button */
+        .btn-appointment {
+            background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%);
+            color: #fff !important;
+            padding: 12px 28px !important;
+            border-radius: 6px;
+            margin-left: 10px;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(30, 58, 138, 0.25);
+        }
+
+        .btn-appointment::before {
+            display: none;
+        }
+
+        .btn-appointment:hover {
+            background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.35);
+            transform: translateY(-1px);
+        }
+
+        .btn-appointment i {
+            margin-right: 8px;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            padding: 15px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #1E3A8A;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* ========================================
+           RESPONSIVE DESIGN
+           ======================================== */
+
+        /* Tablet */
+        @media (max-width: 992px) {
+            .hospital-name {
+                font-size: 1.4rem;
+            }
+
+            .hospital-logo {
+                width: 50px;
+                height: 50px;
+            }
+
+            .logo-cross {
+                width: 22px;
+                height: 22px;
+            }
+
+            .logo-cross::before {
+                width: 22px;
+                height: 5px;
+            }
+
+            .logo-cross::after {
+                width: 5px;
+                height: 22px;
+            }
+
+            .project-title {
+                font-size: 24px;
+            }
+
+            .title-icon {
+                width: 22px;
+                height: 22px;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .header-section {
+                padding: 15px 20px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .hospital-name {
+                font-size: 1.25rem;
+                text-align: center;
+            }
+
+            .hospital-logo {
+                width: 55px;
+                height: 55px;
+            }
+
+            .logo-cross {
+                width: 24px;
+                height: 24px;
+            }
+
+            .logo-cross::before {
+                width: 24px;
+                height: 5px;
+            }
+
+            .logo-cross::after {
+                width: 5px;
+                height: 24px;
+            }
+
+            .center-section {
+                padding: 30px 15px;
+            }
+
+            .project-title-wrapper {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .project-title {
+                font-size: 22px;
+            }
+
+            .title-icon {
+                width: 20px;
+                height: 20px;
+            }
+
+            .project-subtitle {
+                font-size: 13px;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background: #fff;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                padding: 10px 0;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-link {
+                padding: 14px 20px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            }
+
+            .btn-appointment {
+                margin: 10px 20px;
+                text-align: center;
+            }
+        }
+
+        /* Small Mobile */
+        @media (max-width: 480px) {
+            .project-title {
+                font-size: 20px;
+            }
+
+            .project-subtitle {
+                font-size: 12px;
+            }
+
+            .hospital-name {
+                font-size: 1.1rem;
+            }
+
+            .title-icon {
+                width: 18px;
+                height: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========================================
+         HOSPITAL HEADER SECTION
+         ======================================== -->
+    <header class="header-section">
+        <div class="header-content">
+            <!-- Hospital Logo - Blue Circle with White Cross -->
+            <div class="hospital-logo">
+                <div class="logo-cross"></div>
+            </div>
+            
+            <!-- Hospital Name -->
+            <h1 class="hospital-name">
+                MedNova Multispeciality Hospital
+            </h1>
+        </div>
+    </header>
+
+    <!-- ========================================
+         CENTER SECTION - CareConnect Portal
+         ======================================== -->
+    <section class="center-section">
+        <div class="center-content">
+            <!-- Project Title with Stethoscope Icon -->
+            <div class="project-title-wrapper">
+                <!-- Stethoscope SVG Icon -->
+                <span class="title-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 3v2H6.5C5.67 5 5 5.67 5 6.5v3h2V7h1v2h2V7h1v2h2V7h1v2h2V6.5c0-.83-.67-1.5-1.5-1.5H15V3h-2V1h-2v2H9z" fill="#1E3A8A"/>
+                        <circle cx="7.5" cy="10.5" r="1.5" fill="#1E3A8A"/>
+                        <path d="M19 12h-3v2h-2v2H8v-2H6v-2h3V8h2V6h8v6z" fill="#1E3A8A"/>
+                    </svg>
+                </span>
+                <!-- Project Title -->
+                <h2 class="project-title">CareConnect</h2>
+            </div>
+            
+            <!-- Subtitle -->
+            <p class="project-subtitle">Patient Scheduling Portal</p>
+        </div>
+    </section>
+
+    <!-- ========================================
+         NAVIGATION BAR
+         ======================================== -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-stethoscope"></i> Services
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-user-md"></i> Doctors
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-phone-alt"></i> Contact
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link btn-appointment">
+                        <i class="fas fa-calendar-check"></i> Book Appointment
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <script>
+        // Mobile Menu Toggle Function
+        function toggleMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

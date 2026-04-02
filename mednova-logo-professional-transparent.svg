@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 150" width="600" height="150">
+  <defs>
+    <style>
+      .font-main { font-family: 'Poppins', sans-serif; font-weight: 600; }
+      .font-slogan { font-family: 'Poppins', sans-serif; font-weight: 400; }
+    </style>
+    <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10B981"/>
+      <stop offset="100%" style="stop-color:#059669"/>
+    </linearGradient>
+    <linearGradient id="handGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6"/>
+      <stop offset="100%" style="stop-color:#2563EB"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.05"/>
+    </filter>
+  </defs>
+
+  <!-- Icon -->
+  <g transform="translate(30, 30)" filter="url(#shadow)">
+    <!-- Hand -->
+    <path d="M 80,60 C 80,76.5 66.5,90 50,90 C 33.5,90 20,76.5 20,60 C 20,43.5 33.5,30 50,30 C 66.5,30 80,43.5 80,60 Z M 70,60 C 70,71 61,80 50,80 C 39,80 30,71 30,60 C 30,49 39,40 50,40 C 61,40 70,49 70,60 Z" fill="url(#handGradient)"/>
+    
+    <!-- Cross -->
+    <g fill="url(#iconGradient)">
+        <rect x="42" y="15" width="16" height="50" rx="8"/>
+        <rect x="25" y="32" width="50" height="16" rx="8"/>
+    </g>
+  </g>
+
+  <!-- Text -->
+  <g transform="translate(150, 55)">
+    <text class="font-main" x="0" y="0" font-size="32" fill="#0A2A43">MedNova Multispeciality Hospital</text>
+    <text class="font-slogan" x="0" y="35" font-size="18" fill="#5A6C7F">CareConnect – Patient Scheduling Portal</text>
+  </g>
+</svg>

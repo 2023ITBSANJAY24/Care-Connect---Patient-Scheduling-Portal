@@ -1,0 +1,37 @@
+<svg viewBox="0 0 500 150" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title { font: bold 42px 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; }
+    .subtitle { font: 500 16px 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; }
+  </style>
+  <defs>
+    <linearGradient id="tech-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0052D4" /> <!-- Royal Blue -->
+      <stop offset="100%" stop-color="#43C6AC" /> <!-- Teal -->
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(25, 25)">
+    <!-- Emblem -->
+    <g>
+      <!-- Subtle containing circle -->
+      <circle cx="50" cy="50" r="58" fill="none" stroke="url(#tech-grad)" stroke-width="2" opacity="0.3"/>
+
+      <!-- Cross with connection nodes -->
+      <g transform="translate(50, 50) scale(0.85)">
+        <!-- Lines of the cross -->
+        <path d="M0 -40 V40 M-40 0 H40" stroke="url(#tech-grad)" stroke-width="8" stroke-linecap="round"/>
+
+        <!-- Connection Nodes -->
+        <circle cx="0" cy="0" r="10" fill="url(#tech-grad)"/>
+        <circle cx="0" cy="-40" r="8" fill="white" stroke="url(#tech-grad)" stroke-width="3"/>
+        <circle cx="0" cy="40" r="8" fill="white" stroke="url(#tech-grad)" stroke-width="3"/>
+        <circle cx="-40" cy="0" r="8" fill="white" stroke="url(#tech-grad)" stroke-width="3"/>
+        <circle cx="40" cy="0" r="8" fill="white" stroke="url(#tech-grad)" stroke-width="3"/>
+      </g>
+    </g>
+
+    <!-- Text -->
+    <text x="145" y="60" class="title" fill="#222">MedNova</text>
+    <text x="145" y="85" class="subtitle" fill="#555">Multispeciality Hospital</text>
+  </g>
+</svg>

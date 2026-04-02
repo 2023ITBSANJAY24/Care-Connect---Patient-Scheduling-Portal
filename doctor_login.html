@@ -1,0 +1,355 @@
+{% extends "base.html" %}
+
+{% block title %}CareConnect - Doctor Login{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+<style>
+    /* Doctor Login Specific Styles */
+    body {
+        background: #f8fafc;
+    }
+    
+    .doctor-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+        color: white;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 15px rgba(8, 145, 178, 0.3);
+    }
+    
+    .doctor-badge i {
+        font-size: 0.9rem;
+    }
+    
+    .login-form h2 {
+        background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .btn-login {
+        background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%) !important;
+        box-shadow: 0 4px 20px rgba(8, 145, 178, 0.35), 0 2px 8px rgba(8, 145, 178, 0.2) !important;
+    }
+    
+    .btn-login:hover {
+        background: linear-gradient(135deg, #0e7490 0%, #155e75 100%) !important;
+    }
+    
+    .login-illustration {
+        background: linear-gradient(180deg, rgba(8, 145, 178, 0.1) 0%, rgba(14, 116, 144, 0.05) 100%) !important;
+    }
+    
+    .medical-cross::before,
+    .medical-cross::after {
+        background: #22d3ee !important;
+    }
+    
+    .heart-icon {
+        color: #22d3ee !important;
+    }
+    
+    .stethoscope-icon {
+        color: #22d3ee !important;
+    }
+    
+    .welcome-text {
+        background: linear-gradient(135deg, #22d3ee 0%, #0891b2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .input-with-icon:focus-within .icon {
+        color: #0891b2 !important;
+    }
+    
+    .form-control:focus {
+        border-color: #0891b2 !important;
+        box-shadow: 0 0 0 4px rgba(8, 145, 178, 0.15) !important;
+    }
+    
+    .small-link:hover {
+        color: #0891b2 !important;
+    }
+    
+    .doctor-icon-bg {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        box-shadow: 0 8px 25px rgba(8, 145, 178, 0.35);
+    }
+    
+    .doctor-icon-bg i {
+        font-size: 2rem;
+        color: white;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="login-viewport">
+    <!-- Floating Particles -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Soft Light Effects -->
+    <div class="soft-light soft-light-1"></div>
+    <div class="soft-light soft-light-2"></div>
+    <div class="soft-light soft-light-3"></div>
+
+    <!-- Login Card with Glassmorphism -->
+    <div class="login-card">
+        
+        <!-- Left Side - Medical Illustration -->
+        <div class="login-illustration">
+            <!-- Animated Heartbeat Line -->
+            <div class="heartbeat-container">
+                <div class="heartbeat-line">
+                    <div class="heartbeat-pulse"></div>
+                </div>
+                <i class="fas fa-heart heart-icon" style="position: absolute; left: 15%;"></i>
+            </div>
+
+            <!-- Medical Cross Symbol -->
+            <div class="medical-cross"></div>
+
+            <!-- Stethoscope Icon -->
+            <i class="fas fa-stethoscope stethoscope-icon"></i>
+
+            <!-- Modern Medical SVG Illustration -->
+            <div class="art" aria-hidden="true">
+                <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Background circle -->
+                    <circle cx="200" cy="200" r="180" fill="url(#gradDoctor)" opacity="0.3"/>
+                    
+                    <!-- Main hospital building -->
+                    <rect x="100" y="140" width="200" height="180" rx="12" fill="white" stroke="#0891b2" stroke-width="2"/>
+                    
+                    <!-- Building top decoration -->
+                    <rect x="160" y="100" width="80" height="50" rx="8" fill="#0891b2"/>
+                    <rect x="180" y="85" width="40" height="25" rx="4" fill="#0e7490"/>
+                    
+                    <!-- Doctor symbol on building -->
+                    <circle cx="200" cy="145" r="12" fill="#22d3ee"/>
+                    <path d="M192 145 L192 155 Q192 160 200 160 Q208 160 208 155 L208 145" stroke="white" stroke-width="2" fill="none"/>
+                    <circle cx="200" cy="142" r="3" fill="white"/>
+                    
+                    <!-- Windows -->
+                    <rect x="120" y="170" width="40" height="35" rx="4" fill="#cffafe" stroke="#0891b2" stroke-width="1"/>
+                    <rect x="180" y="170" width="40" height="35" rx="4" fill="#cffafe" stroke="#0891b2" stroke-width="1"/>
+                    <rect x="240" y="170" width="40" height="35" rx="4" fill="#cffafe" stroke="#0891b2" stroke-width="1"/>
+                    
+                    <rect x="120" y="220" width="40" height="35" rx="4" fill="#cffafe" stroke="#0891b2" stroke-width="1"/>
+                    <rect x="180" y="220" width="40" height="35" rx="4" fill="#cffafe" stroke="#0891b2" stroke-width="1"/>
+                    <rect x="240" y="220" width="40" height="35" rx="4" fill="#cffafe" stroke="#0891b2" stroke-width="1"/>
+                    
+                    <!-- Door -->
+                    <rect x="175" y="270" width="50" height="50" rx="4" fill="#0891b2" opacity="0.8"/>
+                    <circle cx="215" cy="300" r="3" fill="white"/>
+                    
+                    <!-- Floating medical elements -->
+                    <circle cx="60" cy="120" r="25" fill="#22d3ee" opacity="0.2"/>
+                    <circle cx="340" cy="280" r="30" fill="#0891b2" opacity="0.2"/>
+                    
+                    <!-- ECG Line -->
+                    <path d="M50 200 L100 200 L110 180 L120 220 L130 190 L140 200 L180 200" stroke="#22d3ee" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+                    <path d="M220 200 L250 200 L260 170 L270 230 L280 190 L290 200 L350 200" stroke="#22d3ee" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+                    
+                    <!-- Gradient definition -->
+                    <defs>
+                        <linearGradient id="gradDoctor" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#0891b2"/>
+                            <stop offset="100%" style="stop-color:#22d3ee"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+
+            <!-- Welcome Text -->
+            <div class="welcome-text-container">
+                <h2 class="welcome-text">Welcome, Doctor</h2>
+                <p class="welcome-subtext">Manage your patient appointments</p>
+            </div>
+        </div>
+
+        <!-- Right Side - Login Form -->
+        <div class="login-form">
+            <!-- Doctor Icon -->
+            <div class="doctor-icon-bg">
+                <i class="fas fa-user-md"></i>
+            </div>
+            
+            <div class="doctor-badge">
+                <i class="fas fa-stethoscope"></i>
+                Doctor Access
+            </div>
+            
+            <h2>Doctor Login</h2>
+            <p class="lead">Secure access to your doctor portal.</p>
+
+            <!-- Success Message -->
+            <div id="successMessage" class="success-message">
+                <div class="success-icon">✅</div>
+                <p class="success-text">Login Successful!</p>
+            </div>
+
+            <!-- Error Message -->
+            <div id="errorMessage" class="error-message">
+                <div class="error-icon">❌</div>
+                <p class="error-text" id="errorText">Invalid email or password</p>
+            </div>
+
+            <form id="doctorLoginForm">
+                <!-- Email Field -->
+                <div class="input-with-icon">
+                    <i class="fas fa-envelope icon"></i>
+                    <label for="email" class="form-label visually-hidden">Email</label>
+                    <input id="email" name="email" type="email" class="form-control" placeholder="Doctor Email" required>
+                </div>
+
+                <!-- Password Field with Show/Hide -->
+                <div class="input-with-icon">
+                    <i class="fas fa-lock icon"></i>
+                    <div class="password-wrapper">
+                        <label for="password" class="form-label visually-hidden">Password</label>
+                        <input id="password" name="password" type="password" class="form-control" placeholder="Password" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword('password')">
+                            <i class="fas fa-eye" id="password-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Login Button -->
+                <div class="d-grid mb-3">
+                    <button type="submit" class="btn btn-login" id="loginBtn">
+                        <i class="fas fa-sign-in-alt me-2"></i>Login to Dashboard
+                    </button>
+                </div>
+            </form>
+
+            <!-- Back to Patient Login -->
+            <div class="register-link">
+                <p>Not a Doctor? <a href="/login-page" class="small-link">Patient Login</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Password visibility toggle function
+    function togglePassword(fieldId) {
+        const passwordField = document.getElementById(fieldId);
+        const eyeIcon = document.getElementById(fieldId + '-eye');
+        
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            eyeIcon.classList.remove('fa-eye');
+            eyeIcon.classList.add('fa-eye-slash');
+        } else {
+            passwordField.type = 'password';
+            eyeIcon.classList.remove('fa-eye-slash');
+            eyeIcon.classList.add('fa-eye');
+        }
+    }
+
+    // Doctor Login Form Submission
+    document.getElementById('doctorLoginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        // Hide any previous messages
+        document.getElementById('successMessage').classList.remove('show');
+        document.getElementById('errorMessage').classList.remove('show');
+        
+        // Get form data
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
+        
+        // Validate inputs
+        if (!email || !password) {
+            document.getElementById('errorText').textContent = 'Please enter your email and password';
+            document.getElementById('errorMessage').classList.add('show');
+            return;
+        }
+        
+        // Show loading state
+        const loginBtn = document.getElementById('loginBtn');
+        loginBtn.classList.add('loading');
+        loginBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin me-2"></i>Authenticating...';
+        
+        // Send POST request to Doctor Login API
+        fetch('/doctor_login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Remove loading state
+            loginBtn.classList.remove('loading');
+            loginBtn.innerHTML = '<i class="fas fa-sign-in-alt me-2"></i>Login to Dashboard';
+            
+            if (data.message === 'Login successful') {
+                // Login successful - show success message
+                document.getElementById('successMessage').classList.add('show');
+                // Redirect to Doctor Dashboard after a short delay
+                setTimeout(function() {
+                    window.location.href = data.redirect || '/doctor/dashboard';
+                }, 1000);
+            } else {
+                // Login failed - show error message
+                document.getElementById('errorText').textContent = data.message || 'Invalid email or password';
+                document.getElementById('errorMessage').classList.add('show');
+            }
+        })
+        .catch(error => {
+            // Remove loading state
+            loginBtn.classList.remove('loading');
+            loginBtn.innerHTML = '<i class="fas fa-sign-in-alt me-2"></i>Login to Dashboard';
+            
+            console.error('Error:', error);
+            document.getElementById('errorText').textContent = 'An error occurred. Please try again.';
+            document.getElementById('errorMessage').classList.add('show');
+        });
+    });
+
+    // Add smooth entrance animation for card
+    document.addEventListener('DOMContentLoaded', function() {
+        const card = document.querySelector('.login-card');
+        if (card) {
+            card.style.animation = 'slideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards';
+        }
+    });
+</script>
+{% endblock %}
