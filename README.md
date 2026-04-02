@@ -79,7 +79,7 @@ http://127.0.0.1:5000
 ![Patient Dashboard](patient-dashboard.png.png)
 
 ### Book Appointment Status
-![Book Appointment Status](book-appointment status .png)
+![Book Appointment Status](book-appiontment status.png)
 
 ### Doctor Dashboard
 ![Doctor Dashboard](doctor-dasnboard.png.png)
